@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\User;
 
 class BlogController extends Controller
 {
@@ -42,5 +43,13 @@ class BlogController extends Controller
         // @var_dump($data);
         // die();
         return view('allcategories', $data);
+    }
+    public function author(User $id)
+    {
+        $data = [
+            "title" => "Post Author",
+            "author" => $id,
+        ];
+        return view('postautor', $data);
     }
 }
