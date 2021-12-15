@@ -15,7 +15,7 @@ class BlogController extends Controller
             [
                 "title" => "Blog",
                 "blog" => Post::all()
-                // "value" => nama_model::methotd
+                // "variable" => nama_model::methotd
             ]
         ); // viewnya
 
