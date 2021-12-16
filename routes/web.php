@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 // use App\Models\Blog; ini jika mengunakakn model
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -138,3 +139,13 @@ Route::get('/category/{category:slug}', function (Category $category) {
 
 // post:slug itu penganti  detail id
 Route::get('/detail/{post:slug}', [BlogController::class, 'show']);
+Route::get('/author/{user:id}', [BlogController::class, 'author']);
+
+// Route::metot('/url/{model:param_yg_dicari_pda_table}', [nama_kontroler::class, 'nama_klass']);
+// Route::get('/author/{user:id}', function (User $user) {
+//     return view('postautor', [
+//         "title"   => $user->name,
+//         "blog"    => $user->posts,
+//         "nama" => $user->name,
+//     ]);
+// });

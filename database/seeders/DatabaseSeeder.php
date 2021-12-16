@@ -24,6 +24,13 @@ class DatabaseSeeder extends Seeder
                 'password' => bcrypt('1234')
             ]
         );
+        User::create(
+            [
+                'name'     => 'trisna',
+                'email'    => 'trisna@gmail.com',
+                'password' => bcrypt('1234')
+            ]
+        );
         Category::create(
             [
                 'name' => 'web programing',
@@ -54,6 +61,16 @@ class DatabaseSeeder extends Seeder
                 'body'        => 'lorem ipsum kedua',
                 'category_id' => 2,
                 'user_id'     => 1
+            ]
+        );
+        Post::create(
+            [
+                'title'       => 'judul trisna',
+                'slug'        => 'judul-trisna',
+                'excerpt'     => 'lorem trisna',
+                'body'        => 'lorem ipsum trisna',
+                'category_id' => 2,
+                'user_id'     => 2
             ]
         );
     }

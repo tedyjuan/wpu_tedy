@@ -34,22 +34,24 @@ class BlogController extends Controller
         );
     }
 
+    public function author(User $user)
+    {
+
+        $data = [
+            "title"  => "Post Author",
+            "blog"   => $user->posts,
+            "nama" => $user->name,
+        ];
+        // @dd($data);
+
+        return view('postautor', $data);
+    }
     public function allcategories()
     {
         $data = [
             "title" => "halo",
             "cat" => Category::all(),
         ];
-        // @var_dump($data);
-        // die();
         return view('allcategories', $data);
-    }
-    public function author(User $id)
-    {
-        $data = [
-            "title" => "Post Author",
-            "author" => $id,
-        ];
-        return view('postautor', $data);
     }
 }
