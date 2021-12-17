@@ -130,7 +130,7 @@ Route::get('/Categories', [BlogController::class, 'allcategories']);
 Route::get('/category/{category:slug}', function (Category $category) {
     return view('category_post', [
         "title"    => $category->name,
-        "blog"     => $category->posts,
+        "blog"     => $category->posts->load('category', 'user'),
         "category" => $category->name,
     ]);
 });
@@ -139,7 +139,7 @@ Route::get('/category/{category:slug}', function (Category $category) {
 
 // post:slug itu penganti  detail id
 Route::get('/detail/{post:slug}', [BlogController::class, 'show']);
-Route::get('/author/{user:id}', [BlogController::class, 'author']);
+Route::get('/author/{author:username}', [BlogController::class, 'author']);
 
 // Route::metot('/url/{model:param_yg_dicari_pda_table}', [nama_kontroler::class, 'nama_klass']);
 // Route::get('/author/{user:id}', function (User $user) {

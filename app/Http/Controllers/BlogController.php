@@ -15,8 +15,15 @@ class BlogController extends Controller
             "post",
             [
                 "title" => "Blog",
-                "blog" => Post::all()
+                "blog" => Post::with(['user', 'category'])->latest()->get(),
+                // "blog" => Post::all(), ini terlalu berat di query jadi mengunakan clockwork untuk meringankan query
                 // "variable" => nama_model::methotd
+
+                // eger loding 
+                // "blog" => Post::with(['user', 'category'])->latest()->get(),
+                // menambahkan with() unutk meringankan query
+                // latest() ambil data descending
+                // get() ambil data
             ]
         ); // viewnya
 
@@ -34,13 +41,13 @@ class BlogController extends Controller
         );
     }
 
-    public function author(User $user)
+    public function author(User $author)
     {
 
         $data = [
             "title"  => "Post Author",
-            "blog"   => $user->posts,
-            "nama" => $user->name,
+            "blog"   => $author->posts->load('category', 'user'),
+            "nama" => $author->name,
         ];
         // @dd($data);
 

@@ -105,8 +105,10 @@ return [
     | localized telephone numbers, street address information and more.
     |
     */
-
-    'faker_locale' => 'en_US',
+    // tedy setingan ini terhubung ke  file .env
+    //untuk menambahkan db secara dumy dgn bhsa indonesia
+    // 'faker_locale' => 'en_US',
+    'faker_locale' => env('FAKER_LOCALE', 'en_US'),
 
     /*
     |--------------------------------------------------------------------------
